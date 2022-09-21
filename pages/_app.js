@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
 function MyApp({Component, pageProps}) {
 
     useEffect(() => {
-        import("bootstrap/dist/js/bootstrap")
+        import("bootstrap/dist/js/bootstrap.bundle")
     }, [])
 
     return (

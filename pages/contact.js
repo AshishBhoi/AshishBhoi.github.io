@@ -1,15 +1,21 @@
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import Navbar from "./Navbar";
-import {Modal} from "bootstrap";
+
 
 export default function Contact() {
+
+    const showModal = () => {
+        const { Modal } = require("bootstrap");
+        const myModal = new Modal("#exampleModal");
+
+        myModal.show();
+    }
 
     async function handleOnSubmit(e) {
         e.preventDefault();
 
         const formData = {};
-        const myModal = new Modal(document.getElementById('exampleModal'), {})
 
         Array.from(e.currentTarget.elements).forEach(field => {
             if (!field.name) return;
@@ -26,7 +32,7 @@ export default function Contact() {
             document.getElementById("email_id").value = '';
             document.getElementById("subject").value = '';
             document.getElementById("message").value = '';
-            myModal.show()
+            showModal()
         })
     }
 
