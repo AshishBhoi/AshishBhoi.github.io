@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 import '../styles/globals.css'
 import {useEffect} from "react";
 import Head from "next/head";
@@ -11,6 +12,7 @@ function MyApp({Component, pageProps}) {
 
     useEffect(() => {
         import("bootstrap/dist/js/bootstrap.bundle")
+        import("@fortawesome/fontawesome-free/js/all")
     }, [])
 
     return (

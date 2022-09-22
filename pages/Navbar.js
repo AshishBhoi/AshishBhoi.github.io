@@ -18,6 +18,37 @@ export default function Navbar(nav_desc) {
                         {projects_link(nav_desc)}
                         {about_link(nav_desc)}
                         {contact_link(nav_desc)}
+                        <li className={"nav-item"}>
+                            <a className={"nav-link active mx-1"} href={"https://www.facebook.com/ashish.bhoi.2016"}
+                               aria-label={"facebook"} target={"noopener"}>
+                                <i className={"fa-brands fa-facebook-f fa-lg"}></i>
+                            </a>
+                        </li>
+                        <li className={"nav-item"}>
+                            <a className={"nav-link active mx-1"} href={"https://www.instagram.com/ashishkumar_04"}
+                               aria-label={"facebook"} target={"noopener"}>
+                                <i className={"fa-brands fa-instagram fa-lg"}></i>
+                            </a>
+                        </li>
+                        <li className={"nav-item"}>
+                            <a className={"nav-link active mx-1"} href={"https://twitter.com/Ashishbhoi8"}
+                               aria-label={"facebook"} target={"noopener"}>
+                                <i className={"fa-brands fa-twitter fa-lg"}></i>
+                            </a>
+                        </li>
+                        <li className={"nav-item"}>
+                            <a className={"nav-link active mx-1"} href={"https://github.com/AshishBhoi"}
+                               aria-label={"facebook"} target={"noopener"}>
+                                <i className={"fa-brands fa-github fa-lg"}></i>
+                            </a>
+                        </li>
+                        <li className={"nav-item"}>
+                            <a className={"nav-link active mx-1"}
+                               href={"https://www.linkedin.com/in/ashish-k-b03914136"}
+                               aria-label={"facebook"} target={"noopener"}>
+                                <i className={"fa-brands fa-linkedin-in fa-lg"}></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -41,6 +72,7 @@ function home_link(nav_desc) {
         </li>
     )
 }
+
 function projects_link(nav_desc) {
     if (nav_desc === "Projects") return (
         <li className={"nav-item"}>
@@ -57,6 +89,7 @@ function projects_link(nav_desc) {
         </li>
     )
 }
+
 function about_link(nav_desc) {
     if (nav_desc === "About") return (
         <li className={"nav-item"}>
@@ -73,6 +106,7 @@ function about_link(nav_desc) {
         </li>
     )
 }
+
 function contact_link(nav_desc) {
     if (nav_desc === "Contact") return (
         <li className={"nav-item"}>
