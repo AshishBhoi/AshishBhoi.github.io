@@ -6,14 +6,6 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/gReCaptcha',
-        destination: 'https://www.google.com/recaptcha/api/siteverify',
-      }
-    ]
-  },
 }
 
 module.exports = nextConfig
