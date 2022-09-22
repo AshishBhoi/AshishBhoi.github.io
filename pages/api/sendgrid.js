@@ -25,5 +25,7 @@ export default function handler(req, res) {
         html: message.replace(/rn/g, '<br />')
     }).then(() => {
         res.status(200).json({status: 'Ok', message: 'Contact message sent'})
+    }, error => {
+        res.status(200).json({status: 'NotOk', message: error.response.body})
     })
 }

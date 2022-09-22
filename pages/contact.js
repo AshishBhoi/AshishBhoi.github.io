@@ -59,15 +59,23 @@ export default function Contact() {
                         fetch('/api/sendgrid', {
                             method: 'POST',
                             body: JSON.stringify(formData)
-                        }).then(() => {
-                            document.getElementById("first_name").value = '';
-                            document.getElementById("middle_name").value = '';
-                            document.getElementById("last_name").value = '';
-                            document.getElementById("email_id").value = '';
-                            document.getElementById("subject").value = '';
-                            document.getElementById("message").value = '';
-                            document.getElementById("submit_btn").disabled = '';
-                            showModal()
+                        })
+                            .then((response) => response.json())
+                            .then((res) => {
+                            if (res.status === 'Ok'){
+                                document.getElementById("first_name").value = '';
+                                document.getElementById("middle_name").value = '';
+                                document.getElementById("last_name").value = '';
+                                document.getElementById("email_id").value = '';
+                                document.getElementById("subject").value = '';
+                                document.getElementById("message").value = '';
+                                document.getElementById("submit_btn").disabled = '';
+                                showModal()
+                            }
+                            else {
+                                document.getElementById("submit_btn").disabled = '';
+                                showModal2()
+                            }
                         })
                     } else {
                         showModal2()
