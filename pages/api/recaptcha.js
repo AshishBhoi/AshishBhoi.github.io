@@ -12,10 +12,10 @@ export default async function handler(req, res) {
             })
                 .then((reCaptchaRes) => reCaptchaRes.json())
                 .then((reCaptchaRes) => {
-                    console.log(
-                        reCaptchaRes.score,
-                        "Response from Google reCaptcha verification API"
-                    );
+                    // console.log(
+                    //     reCaptchaRes.score,
+                    //     "Response from Google reCaptcha verification API"
+                    // );
                     if (reCaptchaRes?.score > 0.5) {
                         res.status(200).json({status: 'success', message: reCaptchaRes.score})
                     } else {
