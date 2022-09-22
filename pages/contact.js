@@ -1,19 +1,32 @@
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import Navbar from "./Navbar";
+import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 
 
 export default function Contact() {
+    const {executeRecaptcha} = useGoogleReCaptcha();
 
     const showModal = () => {
-        const { Modal } = require("bootstrap");
+        const {Modal} = require("bootstrap");
         const myModal = new Modal("#exampleModal");
+
+        myModal.show();
+    }
+    const showModal2 = () => {
+        const {Modal} = require("bootstrap");
+        const myModal = new Modal("#exampleModal2");
 
         myModal.show();
     }
 
     async function handleOnSubmit(e) {
         e.preventDefault();
+
+        if (!executeRecaptcha) {
+            console.log("Execute recaptcha not yet available");
+            return;
+        }
 
         const formData = {};
 
@@ -22,18 +35,47 @@ export default function Contact() {
             formData[field.name] = field.value;
         });
 
-        await fetch('/api/sendgrid', {
-            method: 'POST',
-            body: JSON.stringify(formData)
-        }).then((res) => {
-            document.getElementById("first_name").value = '';
-            document.getElementById("middle_name").value = '';
-            document.getElementById("last_name").value = '';
-            document.getElementById("email_id").value = '';
-            document.getElementById("subject").value = '';
-            document.getElementById("message").value = '';
-            showModal()
-        })
+        await executeRecaptcha("enquiryFormSubmit").then((gReCaptchaToken) => {
+            reCaptchaCheck(gReCaptchaToken, formData)
+        }).then(() => {
+                document.getElementById("submit_btn").disabled = 'disabled';
+            }
+        )
+    }
+
+    async function reCaptchaCheck(gRecaptchaToken, formData) {
+        try {
+            await fetch("/api/recaptcha", {
+                method: "POST",
+                body: JSON.stringify({gRecaptchaToken: gRecaptchaToken})
+            })
+                .then((reCaptchaRes) => reCaptchaRes.json())
+                .then((reCaptchaRes) => {
+                    console.log(
+                        reCaptchaRes.status,
+                        "Response from Google reCaptcha verification API"
+                    );
+                    if (reCaptchaRes?.status === 'success') {
+                        fetch('/api/sendgrid', {
+                            method: 'POST',
+                            body: JSON.stringify(formData)
+                        }).then(() => {
+                            document.getElementById("first_name").value = '';
+                            document.getElementById("middle_name").value = '';
+                            document.getElementById("last_name").value = '';
+                            document.getElementById("email_id").value = '';
+                            document.getElementById("subject").value = '';
+                            document.getElementById("message").value = '';
+                            document.getElementById("submit_btn").disabled = '';
+                            showModal()
+                        })
+                    } else {
+                        showModal2()
+                    }
+                });
+        } catch {
+            showModal2()
+        }
     }
 
     return (
@@ -81,7 +123,7 @@ export default function Contact() {
                         <textarea className={"form-control"} rows={6} id={"message"} name={"message"}
                                   placeholder={"Please type your message ...."} required/>
                     </div>
-                    <button type={"submit"} className={"btn btn-dark"}>Submit</button>
+                    <button type={"submit"} className={"btn btn-dark"} id={"submit_btn"}>Submit</button>
                 </form>
             </main>
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
@@ -98,6 +140,24 @@ export default function Contact() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="modal fade" id="exampleModal2" tabIndex="-1" aria-labelledby="exampleModalLabel2"
+                 aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Contact Email</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            Email sent not successful
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-warning" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

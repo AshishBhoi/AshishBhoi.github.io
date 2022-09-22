@@ -3,6 +3,9 @@ import '../styles/globals.css'
 import {useEffect} from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
 
 function MyApp({Component, pageProps}) {
 
@@ -11,7 +14,12 @@ function MyApp({Component, pageProps}) {
     }, [])
 
     return (
-        <>
+        <GoogleReCaptchaProvider reCaptchaKey={SITE_KEY} scriptProps={{
+            async: false,
+            defer: false,
+            appendTo: "head",
+            nonce: undefined,
+        }}>
             <Head>
                 <meta charSet={"utf-8"}/>
                 <meta name={"mobile-web-app-capable"} content={"yes"}/>
@@ -22,7 +30,7 @@ function MyApp({Component, pageProps}) {
             <footer className={styles.footer}>
                 Ashish Kumar Bhoi &copy; 2022
             </footer>
-        </>
+        </GoogleReCaptchaProvider>
 
     )
 }

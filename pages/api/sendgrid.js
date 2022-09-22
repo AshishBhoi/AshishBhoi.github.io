@@ -12,6 +12,9 @@ export default function handler(req, res) {
     const message_subject = body.subject
     const message_email = body.email_id
 
+    // console.log(message)
+    // res.status(200).json({status: 'success', message: 'Contact message sent'})
+
 
     mail.send({
         to: 'ashish@ashishbhoi.com',
