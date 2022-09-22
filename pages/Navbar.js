@@ -5,6 +5,9 @@ export default function Navbar(nav_desc) {
         <nav className={"navbar navbar-expand-lg navbar-dark bg-dark fixed-top"}>
             <div className="container-fluid">
                 <Link href={"/"}>
+                    <a className="navbar-brand"><i className={"fa-solid fa-code"}/></a>
+                </Link>
+                <Link href={"/"}>
                     <a className="navbar-brand">Ashish Kumar Bhoi</a>
                 </Link>
                 <button className={"navbar-toggler"} type={"button"} data-bs-toggle={"collapse"}
@@ -18,37 +21,7 @@ export default function Navbar(nav_desc) {
                         {projects_link(nav_desc)}
                         {about_link(nav_desc)}
                         {contact_link(nav_desc)}
-                        <li className={"nav-item"}>
-                            <a className={"nav-link active mx-1"} href={"https://www.facebook.com/ashish.bhoi.2016"}
-                               aria-label={"facebook"} target={"noopener"}>
-                                <i className={"fa-brands fa-facebook-f fa-lg"}></i>
-                            </a>
-                        </li>
-                        <li className={"nav-item"}>
-                            <a className={"nav-link active mx-1"} href={"https://www.instagram.com/ashishkumar_04"}
-                               aria-label={"facebook"} target={"noopener"}>
-                                <i className={"fa-brands fa-instagram fa-lg"}></i>
-                            </a>
-                        </li>
-                        <li className={"nav-item"}>
-                            <a className={"nav-link active mx-1"} href={"https://twitter.com/Ashishbhoi8"}
-                               aria-label={"facebook"} target={"noopener"}>
-                                <i className={"fa-brands fa-twitter fa-lg"}></i>
-                            </a>
-                        </li>
-                        <li className={"nav-item"}>
-                            <a className={"nav-link active mx-1"} href={"https://github.com/AshishBhoi"}
-                               aria-label={"facebook"} target={"noopener"}>
-                                <i className={"fa-brands fa-github fa-lg"}></i>
-                            </a>
-                        </li>
-                        <li className={"nav-item"}>
-                            <a className={"nav-link active mx-1"}
-                               href={"https://www.linkedin.com/in/ashish-k-b03914136"}
-                               aria-label={"facebook"} target={"noopener"}>
-                                <i className={"fa-brands fa-linkedin-in fa-lg"}></i>
-                            </a>
-                        </li>
+                        {social_link()}
                     </ul>
                 </div>
             </div>
@@ -121,5 +94,47 @@ function contact_link(nav_desc) {
                 <a className={"nav-link"} aria-current={"page"}>Contact</a>
             </Link>
         </li>
+    )
+}
+
+function social_link() {
+    return (
+        <div className={"d-flex"}>
+            <li className={"nav-item"}>
+                <Link href={"https://www.facebook.com/ashish.bhoi.2016"}>
+                    <a className={"nav-link active mx-1"} aria-label={"facebook"}>
+                        <i className={"fa-brands fa-facebook-f fa-lg mx-1"}/>
+                    </a>
+                </Link>
+            </li>
+            <li className={"nav-item"}>
+                <Link href={"https://www.instagram.com/ashishkumar_04"}>
+                    <a className={"nav-link active mx-1"} aria-label={"instagram"}>
+                        <i className={"fa-brands fa-instagram fa-lg mx-1"}/>
+                    </a>
+                </Link>
+            </li>
+            <li className={"nav-item"}>
+                <Link href={"https://twitter.com/Ashishbhoi8"}>
+                    <a className={"nav-link active mx-1"} aria-label={"twitter"}>
+                        <i className={"fa-brands fa-twitter fa-lg mx-1"}/>
+                    </a>
+                </Link>
+            </li>
+            <li className={"nav-item"}>
+                <Link href={"https://github.com/AshishBhoi"}>
+                    <a className={"nav-link active mx-1"} aria-label={"github"}>
+                        <i className={"fa-brands fa-github fa-lg mx-1"}/>
+                    </a>
+                </Link>
+            </li>
+            <li className={"nav-item"}>
+                <Link href={"https://www.linkedin.com/in/ashish-k-b03914136"}>
+                    <a className={"nav-link active mx-1"} aria-label={"linkedin"}>
+                        <i className={"fa-brands fa-linkedin-in fa-lg mx-1"}/>
+                    </a>
+                </Link>
+            </li>
+        </div>
     )
 }

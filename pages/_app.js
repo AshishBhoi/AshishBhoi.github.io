@@ -12,7 +12,7 @@ function MyApp({Component, pageProps}) {
 
     useEffect(() => {
         import("bootstrap/dist/js/bootstrap.bundle")
-        import("@fortawesome/fontawesome-free/js/all")
+        // import("@fortawesome/fontawesome-free/js/all")
     }, [])
 
     return (
