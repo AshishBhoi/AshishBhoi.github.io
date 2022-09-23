@@ -10,7 +10,7 @@ const nextConfig = {
     return [
       {
         source: '/api/cloudflare_recaptcha',
-        destination: 'https://google-recaptcha.ashishbhoi.com/',
+        destination: 'https://recaptcha.ashishbhoi.com/',
       },
       {
         source: '/api/cloudflare_sendgrid',
