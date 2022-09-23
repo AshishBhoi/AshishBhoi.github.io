@@ -14,7 +14,7 @@ export default function handler(req, res) {
       <lastmod>2022-08-22T00:00:00+05:30</lastmod>
     </url>
     <url>
-      <loc>https://www.ashishbhoi.com/index</loc>
+      <loc>https://ashishbhoi.com/</loc>
       <lastmod>2022-08-22T00:00:00+05:30</lastmod>
     </url>
     <url>
