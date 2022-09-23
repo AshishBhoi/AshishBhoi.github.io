@@ -5,7 +5,7 @@ export default function handler(req, res) {
     mail.setApiKey(process.env.SENDGRID_API_KEY)
     const body = JSON.parse(req.body)
     const message = `
-    Name: ${body.first_name}+${body.middle_name}+${body.last_name}rn
+    Name: ${body.first_name} ${body.middle_name} ${body.last_name}rn
     Email: ${body.email_id}rn
     Message: ${body.message}
     `

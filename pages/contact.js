@@ -45,9 +45,12 @@ export default function Contact() {
 
     async function reCaptchaCheck(gRecaptchaToken, formData) {
         try {
-            await fetch("/api/recaptcha", {
+            await fetch("/api/cloudflare_recaptcha", {
                 method: "POST",
-                body: JSON.stringify({gRecaptchaToken: gRecaptchaToken})
+                body: JSON.stringify({gRecaptchaToken: gRecaptchaToken}),
+                headers: {
+                    "Content-Type": "application/json",
+                }
             })
                 .then((reCaptchaRes) => reCaptchaRes.json())
                 .then((reCaptchaRes) => {
@@ -56,9 +59,12 @@ export default function Contact() {
                         "Response from Google reCaptcha verification API"
                     );
                     if (reCaptchaRes?.status === 'success') {
-                        fetch('/api/sendgrid', {
+                        fetch('/api/cloudflare_sendgrid', {
                             method: 'POST',
-                            body: JSON.stringify(formData)
+                            body: JSON.stringify(formData),
+                            headers: {
+                                "Content-Type": "application/json",
+                            }
                         })
                             .then((response) => response.json())
                             .then((res) => {
@@ -78,10 +84,12 @@ export default function Contact() {
                             }
                         })
                     } else {
+                        document.getElementById("submit_btn").disabled = '';
                         showModal2()
                     }
                 });
         } catch {
+            document.getElementById("submit_btn").disabled = '';
             showModal2()
         }
     }

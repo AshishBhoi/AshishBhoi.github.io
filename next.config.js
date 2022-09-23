@@ -6,6 +6,18 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/cloudflare_recaptcha',
+        destination: 'https://google-recaptcha.ashishbhoi.com/',
+      },
+      {
+        source: '/api/cloudflare_sendgrid',
+        destination: 'https://sendgrid.ashishbhoi.com/',
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
