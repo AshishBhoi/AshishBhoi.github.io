@@ -45,7 +45,7 @@ export default function Contact() {
 
     async function reCaptchaCheck(gRecaptchaToken, formData) {
         try {
-            await fetch("/api/cloudflare_recaptcha", {
+            await fetch("https://recaptcha.ashishbhoi.com/", {
                 method: "POST",
                 body: JSON.stringify({gRecaptchaToken: gRecaptchaToken}),
                 headers: {
@@ -59,7 +59,7 @@ export default function Contact() {
                         "Response from Google reCaptcha verification API"
                     );
                     if (reCaptchaRes?.status === 'success') {
-                        fetch('/api/cloudflare_sendgrid', {
+                        fetch('https://sendgrid.ashishbhoi.com/', {
                             method: 'POST',
                             body: JSON.stringify(formData),
                             headers: {
