@@ -11,23 +11,23 @@ export default function handler(req, res) {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
     <url>
       <loc>https://www.ashishbhoi.com/</loc>
-      <lastmod>2022-08-022</lastmod>
+      <lastmod>2022-08-22T00:00:00+05:30</lastmod>
     </url>
     <url>
       <loc>https://www.ashishbhoi.com/index</loc>
-      <lastmod>2022-08-022</lastmod>
+      <lastmod>2022-08-22T00:00:00+05:30</lastmod>
     </url>
     <url>
       <loc>https://www.ashishbhoi.com/projects</loc>
-      <lastmod>2022-08-021</lastmod>
+      <lastmod>2022-08-21T00:00:00+05:30</lastmod>
     </url>
     <url>
       <loc>https://www.ashishbhoi.com/about</loc>
-      <lastmod>2022-08-021</lastmod>
+      <lastmod>2022-08-21T00:00:00+05:30</lastmod>
     </url>
     <url>
       <loc>https://www.ashishbhoi.com/contact</loc>
-      <lastmod>2022-08-023</lastmod>
+      <lastmod>2022-08-23T00:00:00+05:30</lastmod>
     </url>
     </urlset>`
 
