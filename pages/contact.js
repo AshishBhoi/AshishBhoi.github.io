@@ -115,7 +115,7 @@ export default function Contact() {
                 <h1 className={styles.title}>
                     Contact Form
                 </h1>
-                <form className={"my-auto container px-5"} method={"post"} onSubmit={handleOnSubmit}>
+                <form className={"my-auto container px-md-5"} method={"post"} onSubmit={handleOnSubmit}>
                     <div className={"row mb-4"}>
                         <div className={"col"}>
                             <label htmlFor="first_name" className={"form-label"}>First Name</label>
