@@ -9,13 +9,13 @@ export default function Contact() {
 
     const showModal = () => {
         const {Modal} = require("bootstrap");
-        const myModal = new Modal("#exampleModal");
+        const myModal = new Modal("#contactModal");
 
         myModal.show();
     }
     const showModal2 = () => {
         const {Modal} = require("bootstrap");
-        const myModal = new Modal("#exampleModal2");
+        const myModal = new Modal("#contactModal2");
 
         myModal.show();
     }
@@ -115,7 +115,7 @@ export default function Contact() {
                 <h1 className={styles.title}>
                     Contact Form
                 </h1>
-                <form className={"my-auto mx-auto"} method={"post"} onSubmit={handleOnSubmit}>
+                <form className={"my-auto container px-5"} method={"post"} onSubmit={handleOnSubmit}>
                     <div className={"row mb-4"}>
                         <div className={"col"}>
                             <label htmlFor="first_name" className={"form-label"}>First Name</label>
@@ -151,16 +151,16 @@ export default function Contact() {
                     <button type={"submit"} className={"btn btn-dark"} id={"submit_btn"} value={"Submit"}>Submit</button>
                 </form>
             </main>
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
+            <div className="modal fade" id="contactModal" tabIndex="-1" aria-labelledby="contactModalLabel"
                  aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Contact Email</h5>
+                            <h5 className="modal-title text-primary" id="contactModalLabel">Contact Email</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
-                        <div className="modal-body">
+                        <div className="modal-body text-success">
                             Email sent successfully
                         </div>
                         <div className="modal-footer">
@@ -169,16 +169,16 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-            <div className="modal fade" id="exampleModal2" tabIndex="-1" aria-labelledby="exampleModalLabel2"
+            <div className="modal fade" id="contactModal2" tabIndex="-1" aria-labelledby="contactModalLabel2"
                  aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Contact Email</h5>
+                            <h5 className="modal-title text-primary" id="contactModalLabel2">Contact Email</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
-                        <div className="modal-body">
+                        <div className="modal-body text-danger">
                             Email sent not successful
                         </div>
                         <div className="modal-footer">
