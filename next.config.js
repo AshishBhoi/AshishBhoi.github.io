@@ -16,6 +16,10 @@ const nextConfig = {
         source: '/api/cloudflare_sendgrid',
         destination: 'https://sendgrid.ashishbhoi.com/',
       },
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
     ]
   },
 }
