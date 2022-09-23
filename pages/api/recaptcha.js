@@ -1,8 +1,9 @@
 const SITE_KEY = process.env.RECAPTCHA_KEY;
+
 export default async function handler(req, res) {
-    const body = JSON.parse(req.body)
     if (req.method === "POST") {
         try {
+            const body = req.body
             await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
                 method: "POST",
                 headers: {

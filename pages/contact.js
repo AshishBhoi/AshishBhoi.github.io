@@ -39,13 +39,14 @@ export default function Contact() {
             reCaptchaCheck(gReCaptchaToken, formData)
         }).then(() => {
                 document.getElementById("submit_btn").disabled = 'disabled';
+                document.getElementById("submit_btn").innerHTML = 'Submitting...';
             }
         )
     }
 
     async function reCaptchaCheck(gRecaptchaToken, formData) {
         try {
-            await fetch("/api/cloudflare_recaptcha", {
+            await fetch("/api/recaptcha", {
                 method: "POST",
                 body: JSON.stringify({gRecaptchaToken: gRecaptchaToken}),
                 headers: {
@@ -59,7 +60,7 @@ export default function Contact() {
                         "Response from Google reCaptcha verification API"
                     );
                     if (reCaptchaRes?.status === 'success') {
-                        fetch('/api/cloudflare_sendgrid', {
+                        fetch('/api/sendgrid', {
                             method: 'POST',
                             body: JSON.stringify(formData),
                             headers: {
@@ -76,20 +77,28 @@ export default function Contact() {
                                 document.getElementById("subject").value = '';
                                 document.getElementById("message").value = '';
                                 document.getElementById("submit_btn").disabled = '';
+                                document.getElementById("submit_btn").innerHTML = 'Submit';
+
                                 showModal()
                             }
                             else {
                                 document.getElementById("submit_btn").disabled = '';
+                                document.getElementById("submit_btn").innerHTML = 'Submit';
+
                                 showModal2()
                             }
                         })
                     } else {
                         document.getElementById("submit_btn").disabled = '';
+                        document.getElementById("submit_btn").innerHTML = 'Submit';
+
                         showModal2()
                     }
                 });
         } catch {
             document.getElementById("submit_btn").disabled = '';
+            document.getElementById("submit_btn").innerHTML = 'Submit';
+
             showModal2()
         }
     }
@@ -139,7 +148,7 @@ export default function Contact() {
                         <textarea className={"form-control"} rows={6} id={"message"} name={"message"}
                                   placeholder={"Please type your message ...."} required/>
                     </div>
-                    <button type={"submit"} className={"btn btn-dark"} id={"submit_btn"}>Submit</button>
+                    <button type={"submit"} className={"btn btn-dark"} id={"submit_btn"} value={"Submit"}>Submit</button>
                 </form>
             </main>
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
