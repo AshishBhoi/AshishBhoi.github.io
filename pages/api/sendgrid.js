@@ -34,8 +34,7 @@ export default function handler(req, res) {
         } catch (e) {
             res.status(405).json({status: 'NotOk', message: "Unable to send mail"})
         }
-    }
-    else {
+    } else {
         res.status(405).json({status: 'NotOk', message: "Not a post Method"})
     }
 }

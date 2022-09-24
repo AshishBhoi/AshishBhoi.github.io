@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaTwitter} from "react-icons/fa";
 
 export default function Navbar(nav_desc) {
     return (
@@ -102,9 +103,9 @@ function social_link() {
         <div className={"d-flex"}>
             <li className={"nav-item"}>
                 <Link href={"https://www.facebook.com/ashish.bhoi.2016"} passHref>
-                    <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-1"}
+                    <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-2"}
                        aria-label={"facebook"}>
-                        <i className={"fa-brands fa-facebook-f fa-lg mx-1"}/>
+                        <FaFacebookF size={20}/>
                     </a>
                 </Link>
             </li>
@@ -112,31 +113,31 @@ function social_link() {
                 <Link href={"https://www.instagram.com/ashishkumar_04"} passHref>
                     <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-1"}
                        aria-label={"instagram"}>
-                        <i className={"fa-brands fa-instagram fa-lg mx-1"}/>
+                        <FaInstagram size={20}/>
                     </a>
                 </Link>
             </li>
             <li className={"nav-item"}>
                 <Link href={"https://twitter.com/Ashishbhoi8"} passHref>
-                    <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-1"}
+                    <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-2"}
                        aria-label={"twitter"}>
-                        <i className={"fa-brands fa-twitter fa-lg mx-1"}/>
+                        <FaTwitter size={20}/>
                     </a>
                 </Link>
             </li>
             <li className={"nav-item"}>
                 <Link href={"https://github.com/AshishBhoi"} passHref>
-                    <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-1"}
+                    <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-2"}
                        aria-label={"github"}>
-                        <i className={"fa-brands fa-github fa-lg mx-1"}/>
+                        <FaGithub size={20}/>
                     </a>
                 </Link>
             </li>
             <li className={"nav-item"}>
                 <Link href={"https://www.linkedin.com/in/ashish-k-b03914136"} passHref>
-                    <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-1"}
+                    <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-2"}
                        aria-label={"linkedin"}>
-                        <i className={"fa-brands fa-linkedin-in fa-lg mx-1"}/>
+                        <FaLinkedinIn size={20}/>
                     </a>
                 </Link>
             </li>
