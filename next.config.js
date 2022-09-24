@@ -10,18 +10,18 @@ const nextConfig = {
     return [
       {
         source: '/api/cloudflare_recaptcha',
-        destination: 'https://recaptcha.ashishbhoi.com/',
+        destination: 'https://recaptcha.ashishbhoi.com/'
       },
       {
         source: '/api/cloudflare_sendgrid',
-        destination: 'https://sendgrid.ashishbhoi.com/',
+        destination: 'https://sendgrid.ashishbhoi.com/'
       },
       {
         source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
+        destination: '/api/sitemap'
+      }
     ]
-  },
+  }
 }
 
 module.exports = nextConfig

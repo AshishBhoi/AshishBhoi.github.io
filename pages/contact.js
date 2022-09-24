@@ -69,25 +69,24 @@ export default function Contact() {
                         })
                             .then((response) => response.json())
                             .then((res) => {
-                            if (res.status === 'Ok'){
-                                document.getElementById("first_name").value = '';
-                                document.getElementById("middle_name").value = '';
-                                document.getElementById("last_name").value = '';
-                                document.getElementById("email_id").value = '';
-                                document.getElementById("subject").value = '';
-                                document.getElementById("message").value = '';
-                                document.getElementById("submit_btn").disabled = '';
-                                document.getElementById("submit_btn").innerHTML = 'Submit';
+                                if (res.status === 'Ok') {
+                                    document.getElementById("first_name").value = '';
+                                    document.getElementById("middle_name").value = '';
+                                    document.getElementById("last_name").value = '';
+                                    document.getElementById("email_id").value = '';
+                                    document.getElementById("subject").value = '';
+                                    document.getElementById("message").value = '';
+                                    document.getElementById("submit_btn").disabled = '';
+                                    document.getElementById("submit_btn").innerHTML = 'Submit';
 
-                                showModal()
-                            }
-                            else {
-                                document.getElementById("submit_btn").disabled = '';
-                                document.getElementById("submit_btn").innerHTML = 'Submit';
+                                    showModal()
+                                } else {
+                                    document.getElementById("submit_btn").disabled = '';
+                                    document.getElementById("submit_btn").innerHTML = 'Submit';
 
-                                showModal2()
-                            }
-                        })
+                                    showModal2()
+                                }
+                            })
                     } else {
                         document.getElementById("submit_btn").disabled = '';
                         document.getElementById("submit_btn").innerHTML = 'Submit';
@@ -148,7 +147,8 @@ export default function Contact() {
                         <textarea className={"form-control"} rows={6} id={"message"} name={"message"}
                                   placeholder={"Please type your message ...."} required/>
                     </div>
-                    <button type={"submit"} className={"btn btn-dark"} id={"submit_btn"} value={"Submit"}>Submit</button>
+                    <button type={"submit"} className={"btn btn-dark"} id={"submit_btn"} value={"Submit"}>Submit
+                    </button>
                 </form>
             </main>
             <div className="modal fade" id="contactModal" tabIndex="-1" aria-labelledby="contactModalLabel"

@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.css'
-import '@fortawesome/fontawesome-free/css/all.css'
 import '../styles/globals.css'
 import {useEffect} from "react";
 import Head from "next/head";
@@ -8,11 +7,10 @@ import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
 
-function MyApp({Component, pageProps}) {
+export default function MyApp({Component, pageProps}) {
 
     useEffect(() => {
         import("bootstrap/dist/js/bootstrap.bundle")
-        // import("@fortawesome/fontawesome-free/js/all")
     }, [])
 
     return (
@@ -36,5 +34,3 @@ function MyApp({Component, pageProps}) {
 
     )
 }
-
-export default MyApp
