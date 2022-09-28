@@ -1,12 +1,12 @@
 import Link from "next/link";
-import {FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaTwitter} from "react-icons/fa";
+import {FaCode, FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaTwitter} from "react-icons/fa";
 
 export default function Navbar(nav_desc) {
     return (
         <nav className={"navbar navbar-expand-lg navbar-dark bg-dark fixed-top"}>
             <div className="container-fluid">
                 <Link href={"/"}>
-                    <a className="navbar-brand"><i className={"fa-solid fa-code"}/></a>
+                    <a className="navbar-brand"><FaCode size={28}/></a>
                 </Link>
                 <Link href={"/"}>
                     <a className="navbar-brand">Ashish Kumar Bhoi</a>
