@@ -118,7 +118,7 @@ function social_link() {
                 </Link>
             </li>
             <li className={"nav-item"}>
-                <Link href={"https://twitter.com/Ashishbhoi8"} passHref>
+                <Link href={"https://twitter.com/AshishBhoi8"} passHref>
                     <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-2"}
                        aria-label={"twitter"}>
                         <FaTwitter size={20}/>
@@ -126,7 +126,7 @@ function social_link() {
                 </Link>
             </li>
             <li className={"nav-item"}>
-                <Link href={"https://github.com/AshishBhoi"} passHref>
+                <Link href={"https://github.com/ashishbhoi"} passHref>
                     <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-2"}
                        aria-label={"github"}>
                         <FaGithub size={20}/>
@@ -134,7 +134,7 @@ function social_link() {
                 </Link>
             </li>
             <li className={"nav-item"}>
-                <Link href={"https://www.linkedin.com/in/ashish-k-b03914136"} passHref>
+                <Link href={"https://www.linkedin.com/in/ashishbhoi"} passHref>
                     <a target={"_blank"} rel={"noopener noreferrer"} className={"nav-link active mx-2"}
                        aria-label={"linkedin"}>
                         <FaLinkedinIn size={20}/>
